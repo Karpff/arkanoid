@@ -93,7 +93,7 @@ const animate = _=>
     lastTime = new Date().getTime();
     tracker--;
 
-    c.fillStyle = "#333333";
+    c.fillStyle = "#303336";
     c.fillRect(0,0,sizeX,sizeY);
 
     platform.update();
