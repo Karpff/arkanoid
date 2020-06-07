@@ -52,7 +52,7 @@ class Brick
         {
             bricks.delete(this);
             score += 10; //Punkty za zniszeczenie cegły.
-            if(this.type)bonuses.add(new Bonus(this.x,this.y,this.type)); //Jeśli cegła miała typ, to tworzy bonus danego typu po zniszczeniu.
+            if(this.type)bonuses.add(new Bonus(this.x+brickWidth/5,this.y+brickHeight/10,this.type)); //Jeśli cegła miała typ, to tworzy bonus danego typu po zniszczeniu.
         }
     }
 

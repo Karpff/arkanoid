@@ -13,7 +13,7 @@ class Bonus
 
     update(interval)
     {
-        this.y += 3*interval/20*scale;
+        this.y += 4*interval/20*scale;
         this.color-=5; //Główny kolor bonusu cały czas się zmienia
         if(this.y>sizeY)bonuses.delete(this);
         if(this.y + brickHeight*0.8 > platform.y && this.y < platform.y + platformHeight && this.x + brickWidth*0.6 > platform.x && this.x < platform.x + platform.width) //Logika chwytania bonusów przez platformę.
@@ -50,19 +50,19 @@ class Bonus
     draw()
     {
         c.lineWidth = 1;
-        let grd = c.createRadialGradient(this.x+brickWidth/2,this.y+brickHeight/2,0,this.x+brickWidth/2,this.y+brickHeight/2,brickWidth/2);
+        let grd = c.createRadialGradient(this.x+brickWidth*0.3,this.y+brickHeight*0.4,0,this.x+brickWidth*0.3,this.y+brickHeight*0.4,brickWidth/2);
         for(let i=0;i<10;i++) //Bonusy mienią się na tęczowo.
             grd.addColorStop(i*0.1,`hsl(${this.color+i*36},80%,40%)`);
         c.fillStyle = grd;
-        c.fillRect(this.x+brickWidth/5,this.y+brickHeight/10,brickWidth*0.6,brickHeight*0.8);
+        c.fillRect(this.x,this.y,brickWidth*0.6,brickHeight*0.8);
         c.strokeStyle = "white";
-        c.strokeRect(this.x+brickWidth/5,this.y+brickHeight/10,brickWidth*0.6,brickHeight*0.8);
+        c.strokeRect(this.x,this.y,brickWidth*0.6,brickHeight*0.8);
         c.fillStyle = "white";
         c.font = `bold ${brickHeight*0.8}px Impact`;
         c.textBaseline = "middle";
         c.textAlign = "center";
-        c.fillText(this.type,this.x+brickWidth/2,this.y+brickHeight/2);
+        c.fillText(this.type,this.x+brickWidth*0.3,this.y+brickHeight*0.4);
         c.strokeStyle = "black";
-        c.strokeText(this.type,this.x+brickWidth/2,this.y+brickHeight/2);
+        c.strokeText(this.type,this.x+brickWidth*0.3,this.y+brickHeight*0.4);
     }
 }
